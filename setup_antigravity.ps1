@@ -19,7 +19,7 @@ $GeminiDir = Join-Path $UserHome ".gemini"
 $GeminiConfig = Join-Path $GeminiDir "config"
 $AntigravityDir = Join-Path $GeminiDir "antigravity"
 $AntigravityIdeDir = Join-Path $GeminiDir "antigravity-ide"
-$EnterpriseWorkspace = "c:\Antigravity\Enterprise_Agentic_Workspace"
+$EnterpriseWorkspace = if ($env:ANTIGRAVITY_WORKSPACE_PATH) { $env:ANTIGRAVITY_WORKSPACE_PATH } else { "c:\Antigravity\Enterprise_Agentic_Workspace" }
 
 # ============================================================================
 # FUNÇÕES AUXILIARES

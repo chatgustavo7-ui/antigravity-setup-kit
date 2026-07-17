@@ -17,8 +17,8 @@
         "-y",
         "@google-cloud/mcp-server-bigquery"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -51,8 +51,8 @@
         "-y",
         "@google-cloud/mcp-server-cloudrun"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -136,8 +136,8 @@
         "-m",
         "mcp_google_cloud_bigtable_admin"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -147,8 +147,8 @@
         "-y",
         "@google-cloud/mcp-server-firestore"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -158,8 +158,8 @@
         "-y",
         "@google-cloud/mcp-server-logging"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -169,8 +169,8 @@
         "-y",
         "@google-cloud/mcp-server-monitoring"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -180,8 +180,8 @@
         "-y",
         "@google-cloud/mcp-server-pubsub"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -191,8 +191,8 @@
         "-y",
         "@google-cloud/mcp-server-resource-manager"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -202,8 +202,8 @@
         "-y",
         "@google-cloud/mcp-server-spanner"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -213,8 +213,8 @@
         "-y",
         "@google-cloud/mcp-server-compute-engine"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -234,8 +234,8 @@
         "-m",
         "mcp_google_managed_service_for_apache_kafka"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },
@@ -273,8 +273,8 @@
         "-y",
         "@google-cloud/mcp-server-vertex-ai-search"
       ],
+      "authProviderType": "google_credentials",
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
         "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
       }
     },

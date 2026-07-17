@@ -42,3 +42,16 @@ app_db.sqlite
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Exclusão rígida de segredos e tokens locais
+*token*
+*tokens*
+mcp_oauth_tokens.json
+
+# Pacotes do ecossistema de desenvolvimento (Node.js e Python)
+node_modules/
+**/node_modules/
+.venv/
+venv/
+**/.venv/
+**/venv/
