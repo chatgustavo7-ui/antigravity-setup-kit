@@ -1,0 +1,290 @@
+{
+  "mcpServers": {
+    "arize-tracing-assistant": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@arize/tracing-assistant-mcp"
+      ],
+      "env": {
+        "ARIZE_SPACE_ID": "__YOUR_ARIZE_SPACE_ID__",
+        "ARIZE_API_KEY": "__YOUR_ARIZE_API_KEY__"
+      }
+    },
+    "bigquery": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-bigquery"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "claude-mem": {
+      "command": "__PATH_TO_NODE_EXE__",
+      "args": [
+        "__PATH_TO_CLAUDE_MEM_SERVER_JS__"
+      ],
+      "env": {
+        "MEM_DATABASE_URL": "__YOUR_MEM_DATABASE_URL__"
+      }
+    },
+    "clickhouse": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@clickhouse/mcp-server"
+      ],
+      "env": {
+        "CLICKHOUSE_HOST": "__YOUR_CLICKHOUSE_HOST__",
+        "CLICKHOUSE_PORT": "__YOUR_CLICKHOUSE_PORT__",
+        "CLICKHOUSE_USER": "__YOUR_CLICKHOUSE_USER__",
+        "CLICKHOUSE_PASSWORD": "__YOUR_CLICKHOUSE_PASSWORD__",
+        "CLICKHOUSE_DATABASE": "__YOUR_CLICKHOUSE_DATABASE__"
+      }
+    },
+    "cloudrun": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-cloudrun"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "datacloud_bigquery_remote": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_datacloud_bigquery_remote"
+      ],
+      "env": {
+        "DATACLOUD_API_KEY": "__YOUR_DATACLOUD_API_KEY__",
+        "DATACLOUD_ENDPOINT": "__YOUR_DATACLOUD_ENDPOINT__"
+      }
+    },
+    "datacloud_cloud-sql_remote": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_datacloud_cloud_sql_remote"
+      ],
+      "env": {
+        "DATACLOUD_API_KEY": "__YOUR_DATACLOUD_API_KEY__",
+        "DATACLOUD_ENDPOINT": "__YOUR_DATACLOUD_ENDPOINT__"
+      }
+    },
+    "datacloud_knowledge_catalog_remote": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_datacloud_knowledge_catalog_remote"
+      ],
+      "env": {
+        "DATACLOUD_API_KEY": "__YOUR_DATACLOUD_API_KEY__"
+      }
+    },
+    "datacloud_spanner_remote": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_datacloud_spanner_remote"
+      ],
+      "env": {
+        "DATACLOUD_API_KEY": "__YOUR_DATACLOUD_API_KEY__"
+      }
+    },
+    "github": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "__YOUR_GITHUB_TOKEN__"
+      }
+    },
+    "gitlab-orbit": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@orbit/mcp-server-gitlab"
+      ],
+      "env": {
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "__YOUR_GITLAB_TOKEN__",
+        "ORBIT_WORKSPACE_ID": "__YOUR_ORBIT_WORKSPACE_ID__",
+        "ORBIT_API_KEY": "__YOUR_ORBIT_API_KEY__"
+      }
+    },
+    "gmp-code-assist": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@googlemaps/mcp-server-code-assist"
+      ],
+      "env": {
+        "GOOGLE_MAPS_API_KEY": "__YOUR_GOOGLE_MAPS_API_KEY__"
+      }
+    },
+    "google-cloud-bigtable-admin": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_google_cloud_bigtable_admin"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-cloud-firestore": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-firestore"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-cloud-logging": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-logging"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-cloud-monitoring": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-monitoring"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-cloud-pubsub": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-pubsub"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-cloud-resource-manager": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-resource-manager"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-cloud-spanner": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-spanner"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-compute-engine": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-compute-engine"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "google-developer-knowledge": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_google_developer_knowledge"
+      ],
+      "env": {
+        "GOOGLE_DEVELOPER_API_KEY": "__YOUR_GOOGLE_DEVELOPER_API_KEY__"
+      }
+    },
+    "google-managed-service-for-apache-kafka": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_google_managed_service_for_apache_kafka"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "knowledge-catalog": {
+      "command": "__PATH_TO_PYTHON_EXE__",
+      "args": [
+        "-m",
+        "mcp_knowledge_catalog"
+      ],
+      "env": {
+        "CATALOG_API_KEY": "__YOUR_CATALOG_API_KEY__"
+      }
+    },
+    "notebooks": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-notebooks"
+      ],
+      "env": {
+        "NOTEBOOKS_DIR": "__YOUR_NOTEBOOKS_DIRECTORY_PATH__"
+      }
+    },
+    "sequential-thinking": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "env": {}
+    },
+    "vertex-ai-search": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-vertex-ai-search"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "__YOUR_GCP_CREDENTIALS_JSON_PATH__",
+        "GCP_PROJECT_ID": "__YOUR_GCP_PROJECT_ID__"
+      }
+    },
+    "visualization": {
+      "command": "__PATH_TO_NPX_CMD__",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-visualization"
+      ],
+      "env": {}
+    }
+  }
+}

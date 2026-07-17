@@ -1,0 +1,44 @@
+# Antigravity Setup Kit - Regras de Gitignore rígidas para segredos e bancos de dados
+
+# Arquivos de ambiente e segredos
+.env
+*.env
+.env.*
+*.local
+secrets.json
+secret.json
+*secret*.json
+
+# Credenciais e chaves do GCP / OAuth / APIs
+*oauth*.json
+*credentials*.json
+*credential*.json
+client_secret*.json
+*.pem
+*.pkcs12
+*.pfx
+*.p12
+*.key
+*.pub
+
+# Bancos de dados e SQLite
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.s3db
+*.sl3
+PROJETO_PRIVADO.db
+app_db.sqlite
+
+# Diretórios que possam conter dados sensíveis ou segredos
+**/secrets/
+**/credentials/
+
+# IDE e logs do sistema
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
