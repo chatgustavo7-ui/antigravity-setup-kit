@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master, main ]
   release:
-    types: [ created ]
+    types: [ published, created ]
 
 jobs:
   build-installer:
@@ -27,3 +27,9 @@ jobs:
       with:
         name: AntigravitySetup-Installer
         path: Output\AntigravitySetup.exe
+
+    - name: Attach Executable to GitHub Release
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v2
+      with:
+        files: Output/AntigravitySetup.exe
