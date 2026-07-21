@@ -27,7 +27,7 @@ Este documento serve como guia prático e operacional para o desenvolvimento de 
 
 ## 3. Tratamento de Caminhos e Aspas no PowerShell (pwsh)
 - **Caminhos com Espaços:**
-  - O Windows frequentemente possui caminhos com espaços (ex: `C:\meu-servidor\apps`).
+  - O Windows frequentemente possui caminhos com espaços (ex: `C:\Meus Projetos\apps`).
   - Para executar comandos ou passar argumentos com caminhos contendo espaços, sempre envolva o caminho em aspas duplas ou simples.
 - **Operador de Chamada (`&`):**
   - Se você precisar executar um executável cujo caminho absoluto ou relativo contém espaços, use o operador de chamada do PowerShell (`&`).

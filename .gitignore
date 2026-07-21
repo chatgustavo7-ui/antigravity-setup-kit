@@ -24,12 +24,11 @@ client_secret*.json
 # Bancos de dados e SQLite
 *.sqlite
 *.sqlite3
-*.db
 *.db3
 *.s3db
 *.sl3
-PROJETO_PRIVADO.db
-app_db.sqlite
+# Banco de dados genéricos
+*.db
 
 # Diretórios que possam conter dados sensíveis ou segredos
 **/secrets/
