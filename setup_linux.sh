@@ -49,10 +49,11 @@ if command_exists gh; then ok "GitHub CLI instalado"; else skip "GitHub CLI não
 if command_exists gcloud; then ok "Google Cloud CLI instalado"; else skip "Google Cloud CLI não encontrado."; fi
 
 # ============================================================================
-step "ETAPA 2/7: Criando Estrutura de Diretórios"
+step "ETAPA 2/7: Criando Estrutura de Diretórios e Segundo Cérebro"
 
 mkdir -p "$GEMINI_CONFIG/skills" "$GEMINI_CONFIG/plugins" "$ANTIGRAVITY_DIR" "$WORKSPACE_DIR"
-ok "Diretórios base criados em $GEMINI_DIR"
+mkdir -p "obsidian_vault"
+ok "Diretórios base e Cofre Obsidian (obsidian_vault) criados."
 
 # ============================================================================
 step "ETAPA 3/7: Autenticação Google"
@@ -110,10 +111,10 @@ fi
 step "ETAPA 7/7: Instalação Automática de MCPs (npm)"
 
 info "Isso pode levar alguns minutos na primeira vez..."
-for server in "@modelcontextprotocol/server-sequential-thinking" "@modelcontextprotocol/server-memory" "@modelcontextprotocol/server-github" "@modelcontextprotocol/server-filesystem" "@modelcontextprotocol/server-git" "@modelcontextprotocol/server-sqlite"; do
+for server in "obsidian-mcp-server" "@oomkapwn/enquire-mcp" "@modelcontextprotocol/server-sequential-thinking" "@modelcontextprotocol/server-memory" "@modelcontextprotocol/server-github" "@modelcontextprotocol/server-filesystem" "@modelcontextprotocol/server-git" "@modelcontextprotocol/server-sqlite"; do
     npx -y "$server" --help >/dev/null 2>&1 || true
 done
-ok "Servidores principais pré-instalados (cache npm)."
+ok "Servidores principais e Obsidian (Second Brain) pré-instalados (cache npm)."
 
 # ============================================================================
 echo -e "\n${GREEN}  🎉 CONFIGURAÇÃO LINUX CONCLUÍDA!${NC}\n"

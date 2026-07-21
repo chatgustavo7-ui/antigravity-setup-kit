@@ -15,15 +15,19 @@
 
 ---
 
-## 🤔 O que é isso?
+## 🤔 O que é isso e por que é superior a outras ferramentas?
 
-Este kit automatiza a configuração completa do **Google Antigravity** (tanto a versão CLI quanto a IDE) no Windows. Ele instala e configura:
+Diferente de ferramentas como OpenClaw, OpenCode ou OpenDevin que perdem contexto e não possuem memória duradoura, este kit automatiza a configuração de um **Cérebro Secundário (Second Brain)** acoplado ao ecossistema Google Antigravity.
 
+Ele usa o **Obsidian** rodando localmente via protocolo MCP para que o Agente de IA leia suas documentações, arquiteturas e tome decisões contínuas **sem sofrer de amnésia**.
+
+**O que o kit configura em menos de 5 minutos:**
+- 🧠 **Second Brain Automático (Obsidian MCP)** — O agente lê e escreve grafos de conhecimento de forma autônoma.
 - 🔌 **28+ Servidores MCP** (Google Cloud, GitHub, DevTools, e mais)
-- 🧠 **52+ Skills** em Português (PT-BR) com nomes intuitivos
-- 🏢 **13 Verticais de Negócio** com arquiteturas de referência
-- 🔐 **Autenticação Google-First** — faça login pelo Google e 20+ serviços ficam prontos automaticamente
-- 📋 **Regras Globais** para padronização de projetos
+- 🗃️ **Isolamento Docker/Linux** — Roda seguro e inicia com a máquina.
+- 💰 **Integração OpenRouter** — Permite usar modelos LLM 70B de altíssimo raciocínio de forma acessível/gratuita, em vez de depender apenas de modelos caros.
+- 🏗️ **52+ Skills** em Português (PT-BR) organizadas por 13 Verticais de Negócios.
+- 🔐 **Autenticação Zero-Touch** — Sem ficar pedindo senhas repetidamente.
 
 ## ✅ Pré-requisitos
 

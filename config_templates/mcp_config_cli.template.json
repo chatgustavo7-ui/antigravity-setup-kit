@@ -249,6 +249,26 @@
         "CATALOG_API_KEY": "__YOUR_CATALOG_API_KEY__"
       }
     },
+    "obsidian-advanced": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@oomkapwn/enquire-mcp",
+        "--dir",
+        "/workspace/obsidian"
+      ],
+      "env": {}
+    },
+    "obsidian-light": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "obsidian-mcp-server",
+        "--dir",
+        "/workspace/obsidian"
+      ],
+      "env": {}
+    },
     "notebooks": {
       "command": "npx",
       "args": [

@@ -28,7 +28,16 @@ O agente deve ter ciência de que está rodando em um ambiente Linux (dentro do 
 - **Comandos:** Utilize `ls`, `grep`, `cat` (no contexto de análise), e comandos bash nativos, em vez de comandos PowerShell.
 - **Node/Python:** Utilize as versões nativas globais configuradas na imagem Docker.
 
-## 4. Diretrizes de Idioma
+## 4. Uso Contínuo do Obsidian (Second Brain)
+
+> [!CAUTION]
+> **Obrigatório para Arquitetura e Raciocínio**
+> Os agentes DEVERÃO SEMPRE utilizar os servidores MCP do Obsidian (`obsidian-advanced` ou `obsidian-light`) montados em `/workspace/obsidian`.
+
+1. **Antes de Iniciar Tarefas:** Consulte a base de conhecimento do Obsidian para validar regras de negócio, arquitetura atual ou documentação de contexto antes de codificar.
+2. **Ao Finalizar Tarefas:** Documente decisões, resumos de arquiteturas e dependências novas no Obsidian usando as ferramentas do MCP. Isso consolida a memória de longo prazo baseada em grafos, dando à IDE uma vantagem massiva sobre ferramentas baseadas apenas em LLMs na nuvem.
+
+## 5. Diretrizes de Idioma
 
 - Todos os logs, prompts, análises e interações geradas pelos agentes devem ser **estritamente em Português (PT-BR)**.
 - O código e variáveis de sistema mantêm-se em Inglês por padrão de mercado, mas os `prints`, comentários de código e explicações devem ser em PT-BR.

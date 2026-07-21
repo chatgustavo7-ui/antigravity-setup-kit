@@ -8,6 +8,8 @@ services:
     volumes:
       # Monta o diretório local do host no workspace do container para acesso a arquivos
       - ${WORKSPACE_PATH:-./apps}:/workspace/apps
+      # Monta o cofre do Obsidian (Second Brain)
+      - ./obsidian_vault:/workspace/obsidian
       # Persiste a memória do agente (evitando amnésia)
       - antigravity_memory:/root/.gemini
       # Persiste arquivos de configurações e chaves, como OAuth tokens
