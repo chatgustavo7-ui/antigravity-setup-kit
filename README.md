@@ -39,21 +39,41 @@ Antes de rodar o instalador, certifique-se de ter instalado:
 - [ ] **Bun** → `irm bun.sh/install.ps1 | iex`
 - [ ] **uv** (gerenciador Python) → `pip install uv`
 
-## 🚀 Instalação em 3 Passos
+## 🚀 Como Instalar
 
-### Passo 1: Clone o repositório
-```powershell
-git clone https://github.com/chatgustavo7-ui/antigravity-setup-kit.git
-cd antigravity-setup-kit
-```
+O Antigravity Setup Kit pode ser instalado de duas maneiras: rodando isolado via Docker (Recomendado para estabilidade e modelos gratuitos) ou nativamente no Windows.
 
-### Passo 2: Rode o instalador
-```powershell
-powershell -ExecutionPolicy Bypass -File .\setup_antigravity.ps1
-```
+### Opção 1: Linux / WSL / Docker (Recomendado)
+A opção Linux/Docker mantém o ambiente do agente **100% isolado** do seu host e inicia junto com o sistema. Além disso, vem pré-configurado para suportar o **OpenRouter** (modelos Llama 3, Claude Haiku, etc gratuitos/baratos).
 
-### Passo 3: Pronto! 🎉
-Abra o **Antigravity IDE** ou rode `agy` no terminal. Todos os servidores MCP e skills estarão configurados.
+1. Clone o repositório no seu ambiente WSL ou Linux:
+   ```bash
+   git clone https://github.com/chatgustavo7-ui/antigravity-setup-kit.git
+   cd antigravity-setup-kit
+   ```
+
+2. Crie seu arquivo de senhas e adicione sua chave do OpenRouter:
+   ```bash
+   cp .env.example .env
+   nano .env
+   ```
+
+3. **Suba o Container (Roda em Background para sempre):**
+   ```bash
+   docker-compose up -d
+   ```
+
+*(Ou rode nativamente no WSL sem Docker usando `./setup_linux.sh`)*
+
+### Opção 2: Windows Nativo (Antigo)
+Se você utiliza a IDE gráfica no Windows:
+1. Abra o **PowerShell** como Administrador
+2. Execute:
+   ```powershell
+   git clone https://github.com/chatgustavo7-ui/antigravity-setup-kit.git
+   cd antigravity-setup-kit
+   powershell -ExecutionPolicy Bypass -File .\setup_antigravity.ps1
+   ```
 
 ## 📂 Estrutura de Pastas
 

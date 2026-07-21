@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  antigravity-agent:
+    build: .
+    container_name: antigravity-agent
+    restart: unless-stopped
+    volumes:
+      # Monta o diretório local do host no workspace do container para acesso a arquivos
+      - ${WORKSPACE_PATH:-./apps}:/workspace/apps
+      # Persiste a memória do agente (evitando amnésia)
+      - antigravity_memory:/root/.gemini
+      # Persiste arquivos de configurações e chaves, como OAuth tokens
+      - antigravity_config:/root/.config
+    env_file:
+      - .env
+    environment:
+      # Variáveis de ambiente principais para habilitar o OpenRouter
+      - OPENAI_API_BASE=${OPENAI_API_BASE:-https://openrouter.ai/api/v1}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      # Demais variáveis de ambiente (Tokens do GitHub, Stripe, Supabase, etc) vindas do .env
+
+volumes:
+  antigravity_memory:
+  antigravity_config:

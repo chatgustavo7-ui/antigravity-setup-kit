@@ -1,29 +1,34 @@
-# Diretrizes Globais e Regras de Comportamento dos Agentes
+# Regras e Configurações Globais dos Agentes (Antigravity)
 
-Este documento descreve as regras obrigatórias e os padrões de comportamento que todos os agentes autônomos e assistentes de IA devem seguir estritamente ao interagir com o ambiente de desenvolvimento e produção deste servidor.
+Este arquivo define como os agentes do Google Antigravity e sub-agentes (como `teamwork_preview`, `research`, etc) devem operar no seu ambiente.
 
-## 1. Idioma e Comunicação
-- **Regra:** Todo o raciocínio interno, elaboração de planos, checklists de tarefas e interações externas/mensagens com o usuário devem ser conduzidos estritamente em **Português (PT-BR)**.
-- **Exceção:** Comandos de terminal, nomes de variáveis, configurações técnicas e código-fonte devem manter sua nomenclatura técnica original em inglês ou conforme exigido pelo projeto.
+> [!IMPORTANT]
+> **Modelo Padrão e OpenRouter**
+> O ecossistema está configurado para consumir modelos via OpenRouter.
+> Ao delegar tarefas para sub-agentes ou rodar scripts automatizados via CLI, sempre priorize modelos de alta eficiência e baixo custo.
+> 
+> *Modelos de Raciocínio Profundo:* `anthropic/claude-3.5-sonnet`, `google/gemini-1.5-pro`, `meta-llama/llama-3-70b-instruct`
+> *Modelos Rápidos (Flash/Haiku):* `anthropic/claude-3-haiku`, `google/gemini-1.5-flash`
 
-## 2. Arquitetura de Banco Duplo (Mandatório)
-A integridade dos dados históricos e operacionais baseia-se em uma arquitetura de banco duplo bem definida:
-1. **Banco Master (PROJETO_PRIVADO.db):**
-   - **Localização:** `c:\meu-servidor\banco-de-dados\PROJETO_PRIVADO.db`
-   - **Permissão:** Estritamente **SOMENTE LEITURA** (Read-Only).
-   - **Ação Proibida:** Nenhum agente deve sob qualquer circunstância escrever, editar, atualizar, deletar ou modificar tabelas/dados no banco Master.
-2. **Banco Local do App (app_db.sqlite):**
-   - **Localização:** Cada Web App criado dentro de `c:\meu-servidor\apps` deve manter e gerenciar seu próprio banco SQLite local (geralmente sob o caminho `server/database/app_db.sqlite` ou similar).
-   - **Operações de Escrita:** Todas as operações de inserção, alteração ou exclusão de dados relacionadas ao comportamento do aplicativo devem ser feitas no banco de dados local do app.
-   - **Cruzamento de Dados (Relacionamento):** Ao exibir informações de fornecedores, lotes ou empresas, o sistema deve salvar apenas o ID de referência correspondente no banco local do app. Para renderizar os dados legíveis, deve ser feita uma junção (join ou consulta paralela) em tempo de execução com o banco Master `PROJETO_PRIVADO.db` a partir do ID salvo localmente.
+## 1. Persistência de Memória
 
-## 3. Infraestrutura de Deploy e Redes
-- **Hospedagem de Frontend:**
-   - Nenhum frontend web é hospedado de forma local direta para o acesso de usuários externos.
-   - Todos os projetos de Frontend (geralmente baseados em React/Vite) devem ser implantados (deploy) na **Vercel**.
-   - O deploy deve ocorrer obrigatoriamente através de repositórios sincronizados no GitHub sob o perfil do usuário `chatgustavo7-ui`.
-- **Hospedagem de Backend:**
-   - Os servidores de backend (tipicamente aplicações Node.js/Express) rodam localmente na máquina servidora Windows (por exemplo, na porta 3001 ou similar).
-   - Para permitir o acesso seguro de serviços externos às APIs sem expor portas diretamente, é utilizado o **Cloudflare Tunnel** (`cloudflared`), rodando como serviço ou processo persistente no Windows.
-- **Documentação de Referência Central:**
-   - O repositório central contendo as especificações técnicas, padrões de infraestrutura e a documentação original do banco de dados e servidores é: `chatgustavo7-ui/infraestrutura-e-banco`. Consulte-o sempre em caso de dúvidas sobre a infraestrutura.
+Os agentes NUNCA devem perder a memória. O ambiente utiliza Docker volumes e MCP servers de memória para armazenar o contexto longo.
+- Ao rodar localmente no Docker, o volume `antigravity_memory` preserva a pasta `.gemini`.
+- O login e as credenciais (`gcloud`, `gh`, tokens em `.env`) não devem expirar e não exigirão recadastramento por parte do usuário.
+
+## 2. Automação Zero-Touch
+
+Nenhum agente deve solicitar senhas ou tokens manualmente ao usuário durante a execução de tarefas.
+Se um token faltar, o agente deve orientar o usuário a adicioná-lo no arquivo `.env` e reiniciar o container, mas nunca pedir a senha no chat para o usuário digitar.
+
+## 3. Isolamento Linux / WSL
+
+O agente deve ter ciência de que está rodando em um ambiente Linux (dentro do WSL ou Docker).
+- **Paths:** Utilize `/workspace/apps` ao invés de `C:\...`
+- **Comandos:** Utilize `ls`, `grep`, `cat` (no contexto de análise), e comandos bash nativos, em vez de comandos PowerShell.
+- **Node/Python:** Utilize as versões nativas globais configuradas na imagem Docker.
+
+## 4. Diretrizes de Idioma
+
+- Todos os logs, prompts, análises e interações geradas pelos agentes devem ser **estritamente em Português (PT-BR)**.
+- O código e variáveis de sistema mantêm-se em Inglês por padrão de mercado, mas os `prints`, comentários de código e explicações devem ser em PT-BR.

@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "arize-tracing-assistant": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@arize/tracing-assistant-mcp"
@@ -12,7 +12,7 @@
       }
     },
     "bigquery": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-bigquery"
@@ -32,7 +32,7 @@
       }
     },
     "clickhouse": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@clickhouse/mcp-server"
@@ -46,7 +46,7 @@
       }
     },
     "cloudrun": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-cloudrun"
@@ -99,7 +99,7 @@
       }
     },
     "github": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-github"
@@ -109,7 +109,7 @@
       }
     },
     "gitlab-orbit": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@orbit/mcp-server-gitlab"
@@ -121,7 +121,7 @@
       }
     },
     "gmp-code-assist": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@googlemaps/mcp-server-code-assist"
@@ -142,7 +142,7 @@
       }
     },
     "google-cloud-firestore": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-firestore"
@@ -153,7 +153,7 @@
       }
     },
     "google-cloud-logging": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-logging"
@@ -164,7 +164,7 @@
       }
     },
     "google-cloud-monitoring": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-monitoring"
@@ -175,7 +175,7 @@
       }
     },
     "google-cloud-pubsub": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-pubsub"
@@ -186,7 +186,7 @@
       }
     },
     "google-cloud-resource-manager": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-resource-manager"
@@ -197,7 +197,7 @@
       }
     },
     "google-cloud-spanner": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-spanner"
@@ -208,7 +208,7 @@
       }
     },
     "google-compute-engine": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-compute-engine"
@@ -250,7 +250,7 @@
       }
     },
     "notebooks": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-notebooks"
@@ -260,7 +260,7 @@
       }
     },
     "sequential-thinking": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-sequential-thinking"
@@ -268,7 +268,7 @@
       "env": {}
     },
     "vertex-ai-search": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@google-cloud/mcp-server-vertex-ai-search"
@@ -279,7 +279,7 @@
       }
     },
     "visualization": {
-      "command": "npx.cmd",
+      "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-visualization"
