@@ -249,23 +249,13 @@
         "CATALOG_API_KEY": "__YOUR_CATALOG_API_KEY__"
       }
     },
-    "obsidian-advanced": {
+    "obsidian": {
       "command": "npx",
       "args": [
         "-y",
         "@oomkapwn/enquire-mcp",
         "--dir",
-        "/workspace/obsidian"
-      ],
-      "env": {}
-    },
-    "obsidian-light": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "obsidian-mcp-server",
-        "--dir",
-        "/workspace/obsidian"
+        "__OBSIDIAN_VAULT_PATH__"
       ],
       "env": {}
     },
