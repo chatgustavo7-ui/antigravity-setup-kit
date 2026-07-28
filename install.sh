@@ -38,4 +38,4 @@ fi
 echo "Instalado em $INSTALL_DIR. Rodando o setup..."
 cd "$INSTALL_DIR"
 chmod +x setup_linux.sh
-if [ -e /dev/tty ]; then bash setup_linux.sh < /dev/tty; else bash setup_linux.sh; fi
+if (: < /dev/tty) 2>/dev/null; then bash setup_linux.sh < /dev/tty; else bash setup_linux.sh; fi

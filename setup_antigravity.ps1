@@ -292,6 +292,8 @@ try {
 
 if ($obsidianInstalled) {
     Write-Skip "Obsidian já instalado"
+} elseif (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Write-Fail "winget não está disponível neste sistema. Baixe o Obsidian manualmente: https://obsidian.md/download"
 } else {
     winget install -e --id Obsidian.Obsidian --accept-package-agreements --accept-source-agreements 2>&1 | Out-Null
     if ($LASTEXITCODE -eq 0) {
