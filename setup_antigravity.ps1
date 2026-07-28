@@ -20,6 +20,7 @@ $GeminiConfig = Join-Path $GeminiDir "config"
 $AntigravityDir = Join-Path $GeminiDir "antigravity"
 $AntigravityIdeDir = Join-Path $GeminiDir "antigravity-ide"
 $EnterpriseWorkspace = if ($env:ANTIGRAVITY_WORKSPACE_PATH) { $env:ANTIGRAVITY_WORKSPACE_PATH } else { "$env:USERPROFILE\Antigravity_Workspace" }
+$ObsidianVault = if ($env:ANTIGRAVITY_OBSIDIAN_VAULT_PATH) { $env:ANTIGRAVITY_OBSIDIAN_VAULT_PATH } else { Join-Path $EnterpriseWorkspace "_ObsidianVault" }
 
 # ============================================================================
 # FUNÇÕES AUXILIARES
@@ -87,7 +88,7 @@ Write-Step "ETAPA 2/8: Criando Estrutura de Diretórios"
 $dirs = @(
     $GeminiDir, $GeminiConfig, "$GeminiConfig\skills", "$GeminiConfig\plugins",
     $AntigravityDir, $AntigravityIdeDir,
-    $EnterpriseWorkspace
+    $EnterpriseWorkspace, $ObsidianVault
 )
 foreach ($d in $dirs) {
     if (-not (Test-Path $d)) { New-Item -ItemType Directory -Path $d -Force | Out-Null; Write-Ok "Criado: $d" }
@@ -226,6 +227,15 @@ if (Test-Path $cliTemplateSrc) {
     if ($env:GITHUB_PERSONAL_ACCESS_TOKEN) {
         $content = $content -replace '__YOUR_GITHUB_TOKEN__', $env:GITHUB_PERSONAL_ACCESS_TOKEN
     }
+    if ($env:STRIPE_SECRET_KEY) {
+        $content = $content -replace '__YOUR_STRIPE_KEY__', $env:STRIPE_SECRET_KEY
+    }
+    if ($env:SLACK_BOT_TOKEN) {
+        $content = $content -replace '__YOUR_SLACK_TOKEN__', $env:SLACK_BOT_TOKEN
+    }
+    # Caminhos no Windows usam \, que precisa virar \\ dentro de uma string JSON
+    $obsidianVaultJson = $ObsidianVault -replace '\\', '\\'
+    $content = $content -replace '__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson
     if (-not (Test-Path $cliDest) -or (Read-Host "  MCP config CLI já existe. Sobrescrever? (s/N)") -eq 's') {
         Set-Content -Path $cliDest -Value $content -Encoding UTF8
         Write-Ok "MCP config CLI instalado em: $cliDest"
@@ -240,6 +250,15 @@ if (Test-Path $ideTemplateSrc) {
     if ($env:GITHUB_PERSONAL_ACCESS_TOKEN) {
         $content = $content -replace '__YOUR_GITHUB_TOKEN__', $env:GITHUB_PERSONAL_ACCESS_TOKEN
     }
+    if ($env:STRIPE_SECRET_KEY) {
+        $content = $content -replace '__YOUR_STRIPE_KEY__', $env:STRIPE_SECRET_KEY
+    }
+    if ($env:SLACK_BOT_TOKEN) {
+        $content = $content -replace '__YOUR_SLACK_TOKEN__', $env:SLACK_BOT_TOKEN
+    }
+    # Caminhos no Windows usam \, que precisa virar \\ dentro de uma string JSON
+    $obsidianVaultJson = $ObsidianVault -replace '\\', '\\'
+    $content = $content -replace '__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson
     if (-not (Test-Path $ideDest) -or (Read-Host "  MCP config IDE já existe. Sobrescrever? (s/N)") -eq 's') {
         Set-Content -Path $ideDest -Value $content -Encoding UTF8
         Write-Ok "MCP config IDE instalado em: $ideDest"
@@ -274,6 +293,25 @@ if (Test-Path $geminiMdSrc) {
         Write-Ok "Diretivas globais (GEMINI.md) instaladas"
     } else { Write-Skip "GEMINI.md já existe (mantido)" }
 }
+
+# Instalar o app do Obsidian de verdade (nao so o backend MCP)
+$obsidianInstalled = $false
+try {
+    $obsidianCheck = winget list --id Obsidian.Obsidian 2>$null
+    if ($obsidianCheck -match "Obsidian") { $obsidianInstalled = $true }
+} catch {}
+
+if ($obsidianInstalled) {
+    Write-Skip "Obsidian ja instalado"
+} else {
+    try {
+        winget install -e --id Obsidian.Obsidian --accept-package-agreements --accept-source-agreements 2>&1 | Out-Null
+        Write-Ok "Obsidian instalado via winget"
+    } catch {
+        Write-Fail "Nao foi possivel instalar o Obsidian automaticamente. Baixe manualmente: https://obsidian.md/download"
+    }
+}
+Write-Ok "Vault do Obsidian: $ObsidianVault"
 
 # ============================================================================
 # ETAPA 7: COPIAR SKILLS
