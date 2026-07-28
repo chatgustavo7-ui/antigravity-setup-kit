@@ -67,6 +67,16 @@
 
 ---
 
+## 🧠 Obsidian (Second Brain do Agente)
+
+> **Como funciona:** O agente lê e escreve notas num vault Obsidian local via MCP, com busca híbrida (BM25 + embeddings), formando uma memória de longo prazo que sobrevive entre sessões — complementar ao Claude-Mem. O app do Obsidian também é instalado nativamente pelos scripts de setup, então você pode abrir e navegar o mesmo vault.
+
+| # | Servidor | O que faz | Instalação |
+|---|----------|-----------|------------|
+| 38 | **Obsidian** (`@oomkapwn/enquire-mcp`) | Memória de longo prazo do agente sobre um vault Obsidian real, com busca semântica. Escolhido entre duas opções por ser o mais atualizado e feito especificamente para esse caso de uso. | App instalado via `winget`/`brew`/Flatpak; vault criado automaticamente pelo script de setup |
+
+---
+
 ## 🔌 Claude-Mem (Memória Persistente)
 
 | # | Servidor | O que faz | Instalação |
@@ -82,5 +92,6 @@
 | ☁️ Google Cloud | 19 servidores | Automática (gcloud auth) |
 | 🛠️ Desenvolvimento | 9 servidores | Automática (npm) |
 | 🌐 Serviços Externos | 8 servidores | Token manual |
-| 🧠 Memória | 1 servidor | Automática |
-| **Total** | **37 servidores** | - |
+| 🧠 Memória (Claude-Mem) | 1 servidor | Automática |
+| 🧠 Obsidian (Second Brain) | 1 servidor | Automática (vault local) |
+| **Total** | **38 servidores** | - |
