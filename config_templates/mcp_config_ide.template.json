@@ -269,6 +269,26 @@
       ],
       "env": {}
     },
+    "stripe": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@atharvagupta2003/mcp-stripe"
+      ],
+      "env": {
+        "STRIPE_SECRET_KEY": "__YOUR_STRIPE_KEY__"
+      }
+    },
+    "slack": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@jtalk22/slack-mcp"
+      ],
+      "env": {
+        "SLACK_BOT_TOKEN": "__YOUR_SLACK_TOKEN__"
+      }
+    },
     "notebooks": {
       "command": "__PATH_TO_NPX_CMD__",
       "args": [
