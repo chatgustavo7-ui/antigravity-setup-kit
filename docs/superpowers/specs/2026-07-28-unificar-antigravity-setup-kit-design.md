@@ -46,6 +46,16 @@ Os scripts de setup passam a:
 ### 5. Documentação
 `docs/CATALOGO_MCP.md` passa a listar o Obsidian (com a explicação do porquê da escolha) e as entradas novas (Stripe, Slack). README atualizado para não prometer nada que o kit não entrega de fato.
 
+### 6. Ponto de entrada: instalação remota de um comando só
+Em vez de exigir "clone o repositório e rode o script" (pressupõe saber git), o kit ganha dois arquivos de bootstrap na raiz — `install.ps1` (Windows) e `install.sh` (Linux/macOS) — pensados para serem baixados e executados direto via `raw.githubusercontent.com`, sem clone manual:
+
+- Windows: `irm https://raw.githubusercontent.com/chatgustavo7-ui/antigravity-setup-kit/master/install.ps1 | iex`
+- Linux/macOS: `curl -fsSL https://raw.githubusercontent.com/chatgustavo7-ui/antigravity-setup-kit/master/install.sh | bash`
+
+Esses scripts fazem o clone (ou baixam um zip da branch `master`) para uma pasta local e então chamam `setup_antigravity.ps1` / `setup_linux.sh`. Esse comando único é o que aparece em destaque no topo do README, para ser mandado direto para qualquer pessoa (não precisa explicar GitHub/git).
+
+Pré-requisito: o repositório precisa ser **público** para que `raw.githubusercontent.com` sirva os arquivos sem autenticação — o usuário confirmou e o repositório foi tornado público novamente (não tem dado de negócio nem credencial nele, é só o kit de configuração).
+
 ## Testes e limitação conhecida
 
 - **Windows**: testado de ponta a ponta nesta máquina (ambiente real de desenvolvimento do usuário).
