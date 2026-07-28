@@ -18,7 +18,7 @@
 ---
 
 > [!NOTE]
-> Este kit foi projetado para integrar o **Google Antigravity** ao seu sistema com suporte a **52+ Skills em PT-BR**, **37+ Servidores MCP** e memória persistente contínua via **Obsidian MCP Second Brain**.
+> Este kit foi projetado para integrar o **Google Antigravity** ao seu sistema com suporte a **52+ Skills em PT-BR**, **38+ Servidores MCP** e memória persistente contínua via **Obsidian MCP Second Brain**.
 
 ---
 
@@ -49,7 +49,7 @@ Esse comando baixa o kit inteiro e já roda a configuração completa — não p
 
 ### Option C: Clonar Manualmente (para quem quer revisar o código antes)
 
-#### Windows (PowerShell Administrador)
+#### Windows (PowerShell)
 ```powershell
 git clone https://github.com/chatgustavo7-ui/antigravity-setup-kit.git
 cd antigravity-setup-kit
@@ -78,8 +78,8 @@ docker-compose up -d
 
 | Recursos | Descrição |
 | :--- | :--- |
-| 🧠 **Second Brain Automático** | App do **Obsidian instalado nativamente** + integração via MCP para memória persistente sem amnésia entre sessões. |
-| 🔌 **37+ Servidores MCP** | Conectores para Google Cloud (BigQuery, Spanner, Firestore, Cloud Run), GitHub, Chrome DevTools, etc. |
+| 🧠 **Second Brain Automático** | App do **Obsidian instalado automaticamente via winget/brew/Flatpak quando disponível** + integração via MCP para memória persistente sem amnésia entre sessões. |
+| 🔌 **38+ Servidores MCP** | Conectores para Google Cloud (BigQuery, Spanner, Firestore, Cloud Run), GitHub, Chrome DevTools, etc. |
 | 📚 **52+ Skills em PT-BR** | Skills organizadas em 13 verticais de mercado (RH, Jurídico, Finanças, DevOps, IA, Web, etc.). |
 | 🔐 **Autenticação Zero-Touch** | Tokens e segredos gerenciados via variáveis de ambiente seguras. |
 | 🛡️ **Segurança & UAC** | Verificação de segredos (`security_check.ps1`) e elevação UAC automatizada. |

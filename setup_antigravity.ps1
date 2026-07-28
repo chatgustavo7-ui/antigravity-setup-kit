@@ -223,19 +223,13 @@ $cliTemplateSrc = Join-Path $ScriptRoot "config_templates\mcp_config_cli.templat
 $cliDest = Join-Path $GeminiConfig "mcp_config.json"
 if (Test-Path $cliTemplateSrc) {
     $content = Get-Content $cliTemplateSrc -Raw -Encoding UTF8
-    # Substituir placeholders por valores reais das env vars
-    if ($env:GITHUB_PERSONAL_ACCESS_TOKEN) {
-        $content = $content -replace '__YOUR_GITHUB_TOKEN__', $env:GITHUB_PERSONAL_ACCESS_TOKEN
-    }
-    if ($env:STRIPE_SECRET_KEY) {
-        $content = $content -replace '__YOUR_STRIPE_KEY__', $env:STRIPE_SECRET_KEY
-    }
-    if ($env:SLACK_BOT_TOKEN) {
-        $content = $content -replace '__YOUR_SLACK_TOKEN__', $env:SLACK_BOT_TOKEN
-    }
+    # Substituir placeholders por valores reais das env vars (ou string vazia se não definida)
+    $content = $content.Replace('__YOUR_GITHUB_TOKEN__', [string]$env:GITHUB_PERSONAL_ACCESS_TOKEN)
+    $content = $content.Replace('__YOUR_STRIPE_KEY__', [string]$env:STRIPE_SECRET_KEY)
+    $content = $content.Replace('__YOUR_SLACK_TOKEN__', [string]$env:SLACK_BOT_TOKEN)
     # Caminhos no Windows usam \, que precisa virar \\ dentro de uma string JSON
     $obsidianVaultJson = $ObsidianVault -replace '\\', '\\'
-    $content = $content -replace '__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson
+    $content = $content.Replace('__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson)
     if (-not (Test-Path $cliDest) -or (Read-Host "  MCP config CLI já existe. Sobrescrever? (s/N)") -eq 's') {
         Set-Content -Path $cliDest -Value $content -Encoding UTF8
         Write-Ok "MCP config CLI instalado em: $cliDest"
@@ -247,18 +241,13 @@ $ideTemplateSrc = Join-Path $ScriptRoot "config_templates\mcp_config_ide.templat
 $ideDest = Join-Path $AntigravityIdeDir "mcp_config.json"
 if (Test-Path $ideTemplateSrc) {
     $content = Get-Content $ideTemplateSrc -Raw -Encoding UTF8
-    if ($env:GITHUB_PERSONAL_ACCESS_TOKEN) {
-        $content = $content -replace '__YOUR_GITHUB_TOKEN__', $env:GITHUB_PERSONAL_ACCESS_TOKEN
-    }
-    if ($env:STRIPE_SECRET_KEY) {
-        $content = $content -replace '__YOUR_STRIPE_KEY__', $env:STRIPE_SECRET_KEY
-    }
-    if ($env:SLACK_BOT_TOKEN) {
-        $content = $content -replace '__YOUR_SLACK_TOKEN__', $env:SLACK_BOT_TOKEN
-    }
+    # Substituir placeholders por valores reais das env vars (ou string vazia se não definida)
+    $content = $content.Replace('__YOUR_GITHUB_TOKEN__', [string]$env:GITHUB_PERSONAL_ACCESS_TOKEN)
+    $content = $content.Replace('__YOUR_STRIPE_KEY__', [string]$env:STRIPE_SECRET_KEY)
+    $content = $content.Replace('__YOUR_SLACK_TOKEN__', [string]$env:SLACK_BOT_TOKEN)
     # Caminhos no Windows usam \, que precisa virar \\ dentro de uma string JSON
     $obsidianVaultJson = $ObsidianVault -replace '\\', '\\'
-    $content = $content -replace '__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson
+    $content = $content.Replace('__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson)
     if (-not (Test-Path $ideDest) -or (Read-Host "  MCP config IDE já existe. Sobrescrever? (s/N)") -eq 's') {
         Set-Content -Path $ideDest -Value $content -Encoding UTF8
         Write-Ok "MCP config IDE instalado em: $ideDest"
@@ -294,7 +283,7 @@ if (Test-Path $geminiMdSrc) {
     } else { Write-Skip "GEMINI.md já existe (mantido)" }
 }
 
-# Instalar o app do Obsidian de verdade (nao so o backend MCP)
+# Instalar o app do Obsidian de verdade (não só o backend MCP)
 $obsidianInstalled = $false
 try {
     $obsidianCheck = winget list --id Obsidian.Obsidian 2>$null
@@ -302,13 +291,13 @@ try {
 } catch {}
 
 if ($obsidianInstalled) {
-    Write-Skip "Obsidian ja instalado"
+    Write-Skip "Obsidian já instalado"
 } else {
-    try {
-        winget install -e --id Obsidian.Obsidian --accept-package-agreements --accept-source-agreements 2>&1 | Out-Null
+    winget install -e --id Obsidian.Obsidian --accept-package-agreements --accept-source-agreements 2>&1 | Out-Null
+    if ($LASTEXITCODE -eq 0) {
         Write-Ok "Obsidian instalado via winget"
-    } catch {
-        Write-Fail "Nao foi possivel instalar o Obsidian automaticamente. Baixe manualmente: https://obsidian.md/download"
+    } else {
+        Write-Fail "Não foi possível instalar o Obsidian (winget saiu com código $LASTEXITCODE). Baixe manualmente: https://obsidian.md/download"
     }
 }
 Write-Ok "Vault do Obsidian: $ObsidianVault"

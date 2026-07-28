@@ -18,11 +18,23 @@ Expand-Archive -Path $TempZip -DestinationPath $TempExtract -Force
 
 $ExtractedFolder = Get-ChildItem -Path $TempExtract -Directory | Select-Object -First 1
 
+$EnvBackup = Join-Path $env:TEMP "antigravity-setup-kit.env.bak"
+$HadEnvBackup = $false
+
 if (Test-Path $InstallDir) {
     Write-Host "Pasta $InstallDir ja existe, atualizando conteudo..." -ForegroundColor Yellow
+    $ExistingEnv = Join-Path $InstallDir ".env"
+    if (Test-Path $ExistingEnv) {
+        Copy-Item -Path $ExistingEnv -Destination $EnvBackup -Force
+        $HadEnvBackup = $true
+    }
     Remove-Item $InstallDir -Recurse -Force
 }
 Move-Item -Path $ExtractedFolder.FullName -Destination $InstallDir
+
+if ($HadEnvBackup) {
+    Move-Item -Path $EnvBackup -Destination (Join-Path $InstallDir ".env") -Force
+}
 
 Remove-Item $TempZip -Force
 Remove-Item $TempExtract -Recurse -Force
