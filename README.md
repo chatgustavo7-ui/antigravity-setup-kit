@@ -4,6 +4,8 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:3b82f6,100:6366f1&height=220&section=header&text=Antigravity%20Setup%20Kit&fontSize=48&fontColor=ffffff&fontAlignY=36&animation=twinkling&desc=Ecossistema%20Automatizado%20Google%20Antigravity%20(CLI%20%2B%20IDE)&descSize=18&descAlignY=58&descColor=bfdbfe" width="100%" />
 
 [![Windows](https://img.shields.io/badge/Windows-10%2F11%2FServer-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
+[![macOS](https://img.shields.io/badge/macOS-Apple_Silicon%2FIntel-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos)
+[![Linux](https://img.shields.io/badge/Linux-Qualquer_Distro-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![Python](https://img.shields.io/badge/Python-%3E%3D3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Inno Setup](https://img.shields.io/badge/Instalador-Execut%C3%A1vel_Unificado-7c3aed?style=for-the-badge&logo=windows11&logoColor=white)](#-instalador-unificado-exe-com-uac-admin)
@@ -31,7 +33,21 @@ Faça download do instalador unificado construído via **Inno Setup**. Ele confi
 
 ---
 
-### Option B: Instalação via PowerShell / Terminal
+### Option B: Comando Único (Recomendado para quem não usa Git)
+
+#### Windows (PowerShell)
+```powershell
+irm https://raw.githubusercontent.com/chatgustavo7-ui/antigravity-setup-kit/master/install.ps1 | iex
+```
+
+#### Linux / macOS
+```bash
+curl -fsSL https://raw.githubusercontent.com/chatgustavo7-ui/antigravity-setup-kit/master/install.sh | bash
+```
+
+Esse comando baixa o kit inteiro e já roda a configuração completa — não precisa clonar nada na mão.
+
+### Option C: Clonar Manualmente (para quem quer revisar o código antes)
 
 #### Windows (PowerShell Administrador)
 ```powershell
@@ -40,7 +56,15 @@ cd antigravity-setup-kit
 powershell -ExecutionPolicy Bypass -File .\setup_antigravity.ps1
 ```
 
-#### Linux / WSL / Docker Container
+#### Linux / macOS
+```bash
+git clone https://github.com/chatgustavo7-ui/antigravity-setup-kit.git
+cd antigravity-setup-kit
+cp .env.example .env
+bash setup_linux.sh
+```
+
+#### Docker (qualquer SO)
 ```bash
 git clone https://github.com/chatgustavo7-ui/antigravity-setup-kit.git
 cd antigravity-setup-kit
@@ -54,7 +78,7 @@ docker-compose up -d
 
 | Recursos | Descrição |
 | :--- | :--- |
-| 🧠 **Second Brain Automático** | Integração nativa com **Obsidian via MCP** para memória persistente sem amnésia entre sessões. |
+| 🧠 **Second Brain Automático** | App do **Obsidian instalado nativamente** + integração via MCP para memória persistente sem amnésia entre sessões. |
 | 🔌 **37+ Servidores MCP** | Conectores para Google Cloud (BigQuery, Spanner, Firestore, Cloud Run), GitHub, Chrome DevTools, etc. |
 | 📚 **52+ Skills em PT-BR** | Skills organizadas em 13 verticais de mercado (RH, Jurídico, Finanças, DevOps, IA, Web, etc.). |
 | 🔐 **Autenticação Zero-Touch** | Tokens e segredos gerenciados via variáveis de ambiente seguras. |
