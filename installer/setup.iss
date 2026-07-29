@@ -1,6 +1,6 @@
 [Setup]
 AppName=Antigravity Setup Kit
-AppVersion=2.0.0
+AppVersion=2.0.1
 AppPublisher=Gustavo Vitoria de Camargo
 AppPublisherURL=https://github.com/chatgustavo7-ui/antigravity-setup-kit
 AppSupportURL=https://github.com/chatgustavo7-ui/antigravity-setup-kit/issues
@@ -9,6 +9,8 @@ DefaultDirName={autopf}\AntigravitySetupKit
 DefaultGroupName=Antigravity Setup Kit
 DisableProgramGroupPage=yes
 OutputBaseFilename=AntigravitySetup
+SourceDir=..
+OutputDir=installer\Output
 Compression=lzma2/ultra64
 SolidCompression=yes
 PrivilegesRequired=admin
@@ -19,11 +21,11 @@ SetupLogging=yes
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "\.git*,\installer\Output*"
+Source: "*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "\.git*,\installer\Output*,\.env,\.claude*,\.superpowers*,\.github*,\docs\superpowers*"
 
 [Run]
-Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File """{app}\setup_antigravity.ps1""""; StatusMsg: "Executando configuracao automatizada do Antigravity Setup Kit..."; Flags: runhidden waituntilterminated
+Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\setup_antigravity.ps1"""; StatusMsg: "Executando configuracao automatizada do Antigravity Setup Kit..."; Flags: runhidden waituntilterminated
 
 [Icons]
 Name: "{group}\Antigravity Setup Kit"; Filename: "{app}\setup_antigravity.ps1"
-Name: "{group}\Verificar Seguranca"; Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File """{app}\security_check.ps1""""
+Name: "{group}\Verificar Seguranca"; Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\security_check.ps1"""

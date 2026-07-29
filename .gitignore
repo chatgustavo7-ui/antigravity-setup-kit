@@ -55,3 +55,6 @@ node_modules/
 venv/
 **/.venv/
 **/venv/
+
+# Artefato de build do instalador (gerado via ISCC, anexado manualmente aos Releases)
+installer/Output/
