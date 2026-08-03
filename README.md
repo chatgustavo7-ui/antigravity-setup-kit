@@ -17,6 +17,8 @@
 
 ---
 
+> 🧪 **Projeto Pessoal** — kit open-source, mantido de forma independente.
+
 > [!NOTE]
 > Este kit foi projetado para integrar o **Google Antigravity** ao seu sistema com suporte a **52+ Skills em PT-BR**, **38+ Servidores MCP** e memória persistente contínua via **Obsidian MCP Second Brain**.
 
