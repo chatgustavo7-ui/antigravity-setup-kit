@@ -8,7 +8,7 @@
 [![Linux](https://img.shields.io/badge/Linux-Qualquer_Distro-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![Python](https://img.shields.io/badge/Python-%3E%3D3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Inno Setup](https://img.shields.io/badge/Instalador-Execut%C3%A1vel_Unificado-7c3aed?style=for-the-badge&logo=windows11&logoColor=white)](#-instalador-unificado-exe-com-uac-admin)
+[![Inno Setup](https://img.shields.io/badge/Instalador-Execut%C3%A1vel_Unificado-7c3aed?style=for-the-badge&logo=windows11&logoColor=white)](#option-a-executável-unificado-exe-com-uac-admin-recomendado)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-green?style=for-the-badge)](LICENSE)
 
 **Clone → Rode → Pronto!** Configure todo seu ambiente Antigravity em menos de 5 minutos com elevação de privilégios automatizada.
