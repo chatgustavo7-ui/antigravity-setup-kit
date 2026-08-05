@@ -64,6 +64,9 @@
 | 34 | **Slack** | Mensageria corporativa e automação de canais. | `SLACK_BOT_TOKEN` | [api.slack.com/apps](https://api.slack.com/apps) |
 | 35 | **Notion** | Documentação e bases de conhecimento. | `NOTION_API_KEY` | [notion.so/my-integrations](https://www.notion.so/my-integrations) |
 | 36 | **Linear** | Gestão ágil de projetos e issues. | `LINEAR_API_KEY` | [linear.app/settings/api](https://linear.app/settings/api) |
+| 37 | **Atlassian** (Jira, Confluence, Bitbucket) | Servidor oficial remoto da Atlassian — issues, boards, páginas de documentação e repositórios Bitbucket. | OAuth 2.1 (login via navegador, sem token manual) | `claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp/authv2` — veja [docs oficiais](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/) |
+
+> **Nota sobre o Atlassian:** diferente dos demais servidores desta tabela, ele não é um pacote `npx` local — é um servidor remoto HTTP com OAuth. Por isso não está nos `config_templates/*.json` (que só cobrem comando+args de processo local); adicione manualmente com o comando acima quando precisar dele.
 
 ---
 
@@ -71,7 +74,7 @@
 
 | # | Servidor | O que faz | Instalação |
 |---|----------|-----------|------------|
-| 37 | **claude-mem** | Memória de longo prazo que persiste entre sessões. Injeta contexto automaticamente. | Configurado via `settings.json` hooks |
+| 38 | **claude-mem** | Memória de longo prazo que persiste entre sessões. Injeta contexto automaticamente. | Configurado via `settings.json` hooks |
 
 ---
 
@@ -81,7 +84,7 @@
 
 | # | Servidor | O que faz | Instalação |
 |---|----------|-----------|------------|
-| 38 | **Obsidian** (`@oomkapwn/enquire-mcp`) | Memória de longo prazo do agente sobre um vault Obsidian real, com busca semântica. Escolhido entre duas opções por ser o mais atualizado e feito especificamente para esse caso de uso. | App instalado via `winget`/`brew`/Flatpak quando disponível; vault criado automaticamente pelo script de setup |
+| 39 | **Obsidian** (`@oomkapwn/enquire-mcp`) | Memória de longo prazo do agente sobre um vault Obsidian real, com busca semântica. Escolhido entre duas opções por ser o mais atualizado e feito especificamente para esse caso de uso. | App instalado via `winget`/`brew`/Flatpak quando disponível; vault criado automaticamente pelo script de setup |
 
 ---
 
@@ -91,7 +94,7 @@
 |-----------|-----------|--------------|
 | ☁️ Google Cloud | 19 servidores | Automática (gcloud auth) |
 | 🛠️ Desenvolvimento | 9 servidores | Automática (npm) |
-| 🌐 Serviços Externos | 8 servidores | Token manual |
+| 🌐 Serviços Externos | 9 servidores | Token manual ou OAuth |
 | 🧠 Memória (Claude-Mem) | 1 servidor | Automática |
 | 🧠 Obsidian (Second Brain) | 1 servidor | Automática (vault local) |
-| **Total** | **38 servidores** | - |
+| **Total** | **39 servidores** | - |

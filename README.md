@@ -20,7 +20,7 @@
 > 🧪 **Projeto Pessoal** — kit open-source, mantido de forma independente.
 
 > [!NOTE]
-> Este kit foi projetado para integrar o **Google Antigravity** ao seu sistema com suporte a **52+ Skills em PT-BR**, **38+ Servidores MCP** e memória persistente contínua via **Obsidian MCP Second Brain**.
+> Este kit foi projetado para integrar o **Google Antigravity** ao seu sistema com suporte a **53+ Skills em PT-BR**, **39+ Servidores MCP** e memória persistente contínua via **Obsidian MCP Second Brain**.
 
 ---
 
@@ -81,8 +81,8 @@ docker-compose up -d
 | Recursos | Descrição |
 | :--- | :--- |
 | 🧠 **Second Brain Automático** | App do **Obsidian instalado automaticamente via winget/brew/Flatpak quando disponível** + integração via MCP para memória persistente sem amnésia entre sessões. |
-| 🔌 **38+ Servidores MCP** | Conectores para Google Cloud (BigQuery, Spanner, Firestore, Cloud Run), GitHub, Chrome DevTools, etc. |
-| 📚 **52+ Skills em PT-BR** | Skills organizadas em 13 verticais de mercado (RH, Jurídico, Finanças, DevOps, IA, Web, etc.). |
+| 🔌 **39+ Servidores MCP** | Conectores para Google Cloud (BigQuery, Spanner, Firestore, Cloud Run), GitHub, Chrome DevTools, etc. |
+| 📚 **53+ Skills em PT-BR** | Skills organizadas em 13 verticais de mercado (RH, Jurídico, Finanças, DevOps, IA, Web, etc.). |
 | 🔐 **Autenticação Zero-Touch** | Tokens e segredos gerenciados via variáveis de ambiente seguras. |
 | 🛡️ **Segurança & UAC** | Verificação de segredos (`security_check.ps1`) e elevação UAC automatizada. |
 
@@ -99,7 +99,7 @@ AntigravitySetupKit/
 │   ├── setup.iss                     # Script de compilação Inno Setup
 │   └── app_manifest.xml              # Manifesto UAC (requireAdministrator)
 ├── 📁 config_templates/              # Modelos de configuração MCP e regras
-└── 📁 skills/                        # 52+ Skills documentadas em PT-BR
+└── 📁 skills/                        # 53+ Skills documentadas em PT-BR
 ```
 
 ---
