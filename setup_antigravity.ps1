@@ -230,6 +230,8 @@ if (Test-Path $cliTemplateSrc) {
     # Caminhos no Windows usam \, que precisa virar \\ dentro de uma string JSON
     $obsidianVaultJson = $ObsidianVault -replace '\\', '\\'
     $content = $content.Replace('__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson)
+    $workspaceJson = $EnterpriseWorkspace -replace '\\', '\\'
+    $content = $content.Replace('__WORKSPACE_PATH__', $workspaceJson)
     if (-not (Test-Path $cliDest) -or (Read-Host "  MCP config CLI já existe. Sobrescrever? (s/N)") -eq 's') {
         Set-Content -Path $cliDest -Value $content -Encoding UTF8
         Write-Ok "MCP config CLI instalado em: $cliDest"
@@ -248,6 +250,8 @@ if (Test-Path $ideTemplateSrc) {
     # Caminhos no Windows usam \, que precisa virar \\ dentro de uma string JSON
     $obsidianVaultJson = $ObsidianVault -replace '\\', '\\'
     $content = $content.Replace('__OBSIDIAN_VAULT_PATH__', $obsidianVaultJson)
+    $workspaceJson = $EnterpriseWorkspace -replace '\\', '\\'
+    $content = $content.Replace('__WORKSPACE_PATH__', $workspaceJson)
     if (-not (Test-Path $ideDest) -or (Read-Host "  MCP config IDE já existe. Sobrescrever? (s/N)") -eq 's') {
         Set-Content -Path $ideDest -Value $content -Encoding UTF8
         Write-Ok "MCP config IDE instalado em: $ideDest"

@@ -1,6 +1,36 @@
 # 📋 Catálogo Completo de Servidores MCP
 
-> Este documento lista todos os servidores MCP (Model Context Protocol) disponíveis para o Google Antigravity, organizados por categoria.
+> Este documento lista os servidores MCP (Model Context Protocol) disponíveis para o Google Antigravity, organizados por categoria.
+
+## ⚠️ Como ler este catálogo (leia antes de copiar qualquer coisa)
+
+Os servidores aqui vêm em **três formatos diferentes**, e confundi-los é a causa
+mais comum de config que não funciona:
+
+| Formato | Como identificar | Como configurar |
+|---|---|---|
+| **Endpoint remoto** (a maioria dos Google Cloud) | Coluna mostra um host, ex. `bigquery.googleapis.com/mcp` | Autenticação via `gcloud auth login`. **Não é pacote npm** — não existe `@google-cloud/mcp-server-bigquery` no registro |
+| **Pacote npm** | Coluna mostra `@escopo/pacote` | `npx -y <pacote>` no `mcp_config.json` |
+| **Binário/outro runtime** | Ex. GKE via Go | Instalação própria, ver link do projeto |
+
+**Somente os pacotes npm verificados** entram automaticamente nos
+`config_templates/*.json` (são 10). Os endpoints remotos e os que exigem chave
+de API própria ficam aqui como opt-in, pra você adicionar conforme for usando.
+
+> [!CAUTION]
+> **Nunca coloque no seu `mcp_config.json` um pacote npm que você não confirmou
+> que existe.** O config usa `npx -y`, que baixa **e executa** automaticamente.
+> Se o pacote não existe e o escopo do npm está livre, qualquer pessoa pode
+> registrar aquele nome e passar a executar código na sua máquina. Confirme
+> antes com:
+> ```bash
+> npm view <nome-do-pacote> version
+> ```
+> Em 2026-08-06 uma auditoria deste próprio repositório encontrou **25 pacotes
+> inventados** nos templates (escopos `@orbit`, `@arize`, `@clickhouse`,
+> `@googlemaps`, `@atharvagupta2003` — todos sem nenhum pacote publicado, ou
+> seja, livres para qualquer um registrar). Foram removidos e substituídos
+> pelos oficiais equivalentes.
 
 ---
 

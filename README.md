@@ -20,7 +20,7 @@
 > 🧪 **Projeto Pessoal** — kit open-source, mantido de forma independente.
 
 > [!NOTE]
-> Este kit foi projetado para integrar o **Google Antigravity** ao seu sistema com suporte a **53+ Skills em PT-BR**, **39+ Servidores MCP** e memória persistente contínua via **Obsidian MCP Second Brain**.
+> Este kit foi projetado para integrar o **Google Antigravity** ao seu sistema com suporte a **53+ Skills em PT-BR**, **10 servidores MCP verificados** instalados automaticamente (mais um catálogo de endpoints remotos e opt-in em [`docs/CATALOGO_MCP.md`](docs/CATALOGO_MCP.md)) e memória persistente contínua sobre um vault Markdown.
 
 ---
 
@@ -81,7 +81,7 @@ docker-compose up -d
 | Recursos | Descrição |
 | :--- | :--- |
 | 🧠 **Second Brain Automático** | App do **Obsidian instalado automaticamente via winget/brew/Flatpak quando disponível** + integração via MCP para memória persistente sem amnésia entre sessões. |
-| 🔌 **39+ Servidores MCP** | Conectores para Google Cloud (BigQuery, Spanner, Firestore, Cloud Run), GitHub, Chrome DevTools, etc. |
+| 🔌 **10 Servidores MCP verificados** | Instalados automaticamente: filesystem, memory, sequential-thinking, puppeteer, playwright, context7, github, stripe, slack, vault-markdown. Todos confirmados no registro npm. Google Cloud (BigQuery, Spanner, Firestore, Cloud Run) e outros ficam como opt-in no [catálogo](docs/CATALOGO_MCP.md) — são endpoints remotos via `gcloud auth`, não pacotes npm. |
 | 📚 **53+ Skills em PT-BR** | Skills organizadas em 13 verticais de mercado (RH, Jurídico, Finanças, DevOps, IA, Web, etc.). |
 | 🔐 **Autenticação Zero-Touch** | Tokens e segredos gerenciados via variáveis de ambiente seguras. |
 | 🛡️ **Segurança & UAC** | Verificação de segredos (`security_check.ps1`) e elevação UAC automatizada. |
