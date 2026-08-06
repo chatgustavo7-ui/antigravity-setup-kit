@@ -28,13 +28,13 @@ $patterns = @(
     @{ Name = "OpenAI API Key";              Regex = "sk-[A-Za-z0-9]{48,}" },
     @{ Name = "Google API Key";              Regex = "AIza[A-Za-z0-9_-]{35}" },
     @{ Name = "AWS Access Key";              Regex = "AKIA[A-Z0-9]{16}" },
-    @{ Name = "AWS Secret Key";              Regex = "(?i)aws(.{0,20})?['\"][0-9a-zA-Z/+]{40}['\"]" },
+    @{ Name = "AWS Secret Key";              Regex = "(?i)aws(.{0,20})?['`"][0-9a-zA-Z/+]{40}['`"]" },
     @{ Name = "Supabase Key";                Regex = "sbp_[A-Za-z0-9]{40,}" },
     @{ Name = "Notion API Key";              Regex = "ntn_[A-Za-z0-9]{40,}" },
     @{ Name = "Linear API Key";              Regex = "lin_api_[A-Za-z0-9]{40,}" },
     @{ Name = "Private Key Header";          Regex = "-----BEGIN (RSA |EC |DSA )?PRIVATE KEY-----" },
     @{ Name = "JWT Token";                   Regex = "eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]+" },
-    @{ Name = "Generic Secret Assignment";   Regex = "(?i)(password|secret|token|api_key|apikey)\s*[=:]\s*['\"][A-Za-z0-9+/=_-]{16,}['\"]" }
+    @{ Name = "Generic Secret Assignment";   Regex = "(?i)(password|secret|token|api_key|apikey)\s*[=:]\s*['`"][A-Za-z0-9+/=_-]{16,}['`"]" }
 )
 
 $extensions = @("*.json", "*.md", "*.yaml", "*.yml", "*.toml", "*.env", "*.cfg", "*.ini", "*.conf", "*.ps1", "*.sh", "*.bat", "*.py", "*.js", "*.ts")

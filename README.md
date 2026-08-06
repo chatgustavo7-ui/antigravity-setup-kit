@@ -99,8 +99,23 @@ AntigravitySetupKit/
 │   ├── setup.iss                     # Script de compilação Inno Setup
 │   └── app_manifest.xml              # Manifesto UAC (requireAdministrator)
 ├── 📁 config_templates/              # Modelos de configuração MCP e regras
-└── 📁 skills/                        # 53+ Skills documentadas em PT-BR
+├── 📁 skills/                        # 53+ Skills documentadas em PT-BR
+└── 📁 tests_e2e/                     # Suíte de testes E2E do instalador (Windows)
 ```
+
+---
+
+## 🧪 Rodando os Testes (Windows)
+
+O instalador (`setup_antigravity.ps1`) e o scanner de segredos (`security_check.ps1`) têm uma suíte de testes E2E que roda tudo em uma sandbox isolada (perfis de usuário, PATH e mocks de `gcloud`/`gh`/`npm`/`npx`/`winget` falsos) — nada toca sua instalação real do Antigravity nem suas credenciais.
+
+```powershell
+pwsh -File .\tests_e2e\run_tests.ps1
+```
+
+> Use **`pwsh`** (PowerShell 7+), não `powershell.exe` — a versão legada do Windows PowerShell não lê corretamente os acentos/emojis UTF-8 dos scripts e quebra o parser.
+
+Gera um relatório em `tests_e2e/reports/test_report.md` (ignorado pelo git). `tests_e2e/test_gitignore.py` e `tests_e2e/test_leak_detection.ps1` são scripts auxiliares — o primeiro valida as regras do `.gitignore` contra nomes de arquivo reais, o segundo confirma que a sandbox de testes não vaza variáveis de ambiente para o processo pai.
 
 ---
 

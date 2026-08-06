@@ -44,8 +44,13 @@ yarn-debug.log*
 yarn-error.log*
 
 # Exclusão rígida de segredos e tokens locais
-*token*
-*tokens*
+# (wildcards *token*/*tokens* removidos - bloqueavam ate codigo-fonte legitimo
+# so por conter "tokens" no nome, ex: testes de autenticacao. security_check.ps1
+# ja faz deteccao de segredos reais por conteudo/regex, nao por nome de arquivo)
+*.token
+token.json
+*_token.txt
+*_token.json
 mcp_oauth_tokens.json
 
 # Pacotes do ecossistema de desenvolvimento (Node.js e Python)
@@ -58,3 +63,8 @@ venv/
 
 # Artefato de build do instalador (gerado via ISCC, anexado manualmente aos Releases)
 installer/Output/
+
+# Saida gerada ao rodar a suite de testes E2E (tests_e2e/run_tests.ps1)
+tests_e2e/mocks/
+tests_e2e/sandbox/
+tests_e2e/reports/
